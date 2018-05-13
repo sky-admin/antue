@@ -265,7 +265,7 @@ const generateComponentsRouterConfig = async () => {
   }))
   configString = redirectString + configString.substring(0, configString.length - 2)
   importString += 'Vue.use(Router)\n'
-  const config = '\nlet router = new Router({\n  routes: [\n' + configString + '\n  ]\n})\n\nexport default router\n'
+  const config = '\nconst router = new Router({\n  mode: \'history\',\n  routes: [\n' + configString + '\n  ]\n})\n\nexport default router\n'
   stableWriteFile(sitePath, 'router.js', importString + config)
 }
 
